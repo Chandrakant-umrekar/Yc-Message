@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Anonymous Messaging Platform
 
-## Getting Started
+## Overview
 
-First, run the development server:
+The Anonymous Messaging Platform is a web application that enables users to receive and send anonymous messages through custom-generated links. This platform ensures complete anonymity, allowing users to freely share their thoughts without revealing their identity. Users can create an account, generate their unique message link, and share it with others to receive anonymous feedback, messages, or opinions. Additionally, users can send anonymous messages to others using their shared links.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Account Creation**: Users can sign up and log in to get the dashboard.
+- Email Verification: You will get OTP to verify your account.
+- **Custom Links**: Each user gets a unique link to receive anonymous messages.
+- **Anonymous Messaging**: Allows anyone with the link to send messages without revealing their identity.
+- **Secure Communication**: Built with modern security practices to protect user data.
+- **Responsive Design**: Accessible across devices with a user-friendly interface.
+- **Dark Mode Support**: Enhances usability with light and dark theme options.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Frontend**: React.js(Next.js), Tailwind CSS
+- **Backend**: Next.js (Node.js, Express.js)
+- **Validation**: React Hook Form, Zod, mongoose.
+- **Database**: MongoDB.
+- **Toast Notifications**: For real-time user feedback
+- **Next-Auth**: For session and login.
+- Email Verification: OTP for account verification using resend.
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/Chandrakant-umrekar/Yc-Message.git
+   cd Yc-Message
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies:**
 
-## Deploy on Vercel
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory and add the following variables:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```env
+   MONGODB_URL=your_database_url
+   RESEND_API_KEY=your_resend_secret
+   NEXT_URL=your_api_base_url
+   NEXT_SECRET=your_secret
+   ```
+
+4. **Start the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+   The application will be accessible at `http://localhost:3000`.
+
+## Usage
+
+### 1. Sign Up and Create an Account
+
+- Visit the homepage and sign up with your name, email and password.
+
+### 2. Generate Your Custom Link
+
+- After signing up, you will get a dashboard with link that you can share with others and also have functionalty to accept or unaccept messages.
+
+### 3. Receive Anonymous Messages
+
+- People can use your link to send you anonymous messages. You can view these messages in your dashboard.
+
+### 4. Send Anonymous Messages
+
+- Use others' shared links to send them anonymous messages while remaining anonymous.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature: `git checkout -b feature-name`.
+3. Commit your changes: `git commit -m 'Add some feature'`.
+4. Push to the branch: `git push origin feature-name`.
+5. Create a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+## Acknowledgments
+
+- Special thanks to the open-source community for providing tools and libraries that made this project possible.
+- Inspired by anonymous messaging platforms like Sarahah and Whisper.
+
+---
+
