@@ -1,101 +1,131 @@
-import Image from "next/image";
+"use client";
+import React from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import messages from "@/message.json";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
+import Link from "next/link";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-12 lg:px-24 py-12 text-gray-900 bg-gradient-to-br from-[#fdfbfb] to-[#ebedee] dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+      <section className="text-center mb-12 max-w-3xl transition-transform duration-300">
+        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-800 dark:text-gray-50 tracking-tight ">
+          Discover the Power of{" "}
+          <span className="bg-gradient-to-r from-[#ff4500] to-[#ff8c00] dark:from-[#ff5e57] dark:to-[#ff7849] text-transparent bg-clip-text">
+            Anonymous
+          </span>{" "}
+          Feedback
+        </h1>
+        <p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300">
+          Empower your voice without revealing your identity at{" "}
+          <span className="bg-gradient-to-r from-[#ff4500] to-[#ff8c00] dark:from-[#ff5e57] dark:to-[#ff7849] text-transparent bg-clip-text font-semibold">
+            Yc Message
+          </span>
+        </p>
+        <Link
+          href="/sign-up"
+          className="mt-6 inline-block px-8 py-3 text-white text-lg font-semibold rounded-lg bg-gradient-to-r from-[#ff4500] to-[#ff8c00] hover:from-[#ff8c00] hover:to-[#ff4500] transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg dark:shadow-orange-500/20"
+        >
+          Get Started
+        </Link>
+      </section>
+      <section className="w-full max-w-3xl mb-16 bg-white dark:bg-gray-800 rounded-lg shadow-xl dark:shadow-gray-900/50 overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-t-2 dark:hover:border-t-2 hover:border-blue-500/45 dark:hover:border-blue-500 transition-all duration-150">
+        <Carousel plugins={[Autoplay({ delay: 3000 })]} className="p-2">
+          <CarouselContent>
+            {messages.map((message, index) => (
+              <CarouselItem
+                key={index}
+                className="p-6 flex flex-col justify-center items-center"
+              >
+                <Card className="w-full rounded-lg shadow-lg bg-gray-50 dark:bg-gray-900 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-800/50">
+                  <CardHeader className="text-xl font-bold text-center text-gray-800 dark:text-gray-50">
+                    {message.title}
+                  </CardHeader>
+                  <CardContent className="p-6 text-lg font-medium text-gray-700 dark:text-gray-300 text-center">
+                    {message.content}
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 text-gray-800 dark:text-gray-200 rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 backdrop-blur-sm" />
+          <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 text-gray-800 dark:text-gray-200 rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 backdrop-blur-sm" />
+        </Carousel>
+      </section>
+      <section className="w-full max-w-5xl text-center px-4 py-12 bg-white dark:bg-gray-800 rounded-lg shadow-xl dark:shadow-gray-900/50 border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-800/50 hover:border-t-2 dark:hover:border-t-2 hover:border-blue-500/45 dark:hover:border-blue-500">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-50 mb-8">
+          How to Use{" "}
+          <span className="bg-gradient-to-r from-[#ff4500] to-[#ff8c00] dark:from-[#ff5e57] dark:to-[#ff7849] text-transparent bg-clip-text">
+            Yc Message
+          </span>
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            "Create an account or log in to get your custom link.",
+            "Share your thoughts anonymously and fearlessly with others with their custom link.",
+            "Sit back and receive honest feedback from others.",
+          ].map((text, index) => (
+            <div key={index} className="flex flex-col items-center group">
+              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-[#ff4500] to-[#ff8c00] dark:from-[#ff5e57] dark:to-[#ff7849] flex items-center justify-center text-white text-2xl font-bold shadow-lg mb-4 transition-transform duration-100 group-hover:scale-110">
+                {index + 1}
+              </div>
+              <p className="text-lg font-medium text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                {text}
+              </p>
+            </div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+      <footer className="w-full bg-gray-50 dark:bg-gray-900 py-8 mt-16 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4">
+          <p className="text-sm text-gray-600 dark:text-gray-400 text-center md:text-left">
+            © {new Date().getFullYear()} Yc Message. All rights reserved by{" "}
+            <a
+              className="text-blue-500 hover:underline"
+              href="https://www.linkedin.com/in/chandrakant-umrekar-141bb932b/"
+            >
+              Chandrakant Umrekar
+            </a>
+            .
+          </p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            {[
+              { icon: FaFacebookF, href: "https://facebook.com" },
+              { icon: FaTwitter, href: "https://x.com/Chandrakant_0w" },
+              { icon: FaInstagram, href: "https://instagram.com" },
+              {
+                icon: FaLinkedinIn,
+                href: "https://www.linkedin.com/in/chandrakant-umrekar-141bb932b/",
+              },
+            ].map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-[#ff4500] dark:hover:text-[#ff8c00] transition-colors duration-100"
+              >
+                <social.icon className="h-6 w-6" />
+              </a>
+            ))}
+          </div>
+        </div>
       </footer>
-    </div>
+    </main>
   );
-}
+};
+
+export default Home;
