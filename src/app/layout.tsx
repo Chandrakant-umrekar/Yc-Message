@@ -31,10 +31,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta
-        name="google-site-verification"
-        content="bMiulZKLic6JbneRa6tpvRKOwGNODLIrQ7651goPgU0"
-      />
       <link rel="icon" href="/favicon.ico" />
 
       <AuthProvider>
