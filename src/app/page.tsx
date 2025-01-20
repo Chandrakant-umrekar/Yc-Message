@@ -10,12 +10,6 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import messages from "@/message.json";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
 import Link from "next/link";
 
 const Home = () => {
@@ -37,7 +31,7 @@ const Home = () => {
         </p>
         <Link
           href="/sign-up"
-          className="mt-6 inline-block px-8 py-3 text-white text-lg font-semibold rounded-lg bg-gradient-to-r from-[#ff4500] to-[#ff8c00] hover:from-[#ff8c00] hover:to-[#ff4500] transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg dark:shadow-orange-500/20"
+          className="mt-6 inline-block px-8 py-3 text-white hover:text-current text-lg font-semibold rounded-lg bg-gradient-to-r from-[#ff4500] to-[#ff8c00] hover:from-[#ff8c00] hover:to-[#ff4500] transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg dark:shadow-orange-500/20"
         >
           Get Started
         </Link>
@@ -89,41 +83,6 @@ const Home = () => {
           ))}
         </div>
       </section>
-      <footer className="w-full bg-gray-50 dark:bg-gray-900 py-8 mt-16 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400 text-center md:text-left">
-            © {new Date().getFullYear()} Yc Message. All rights reserved by{" "}
-            <a
-              className="text-blue-500 hover:underline"
-              href="https://www.linkedin.com/in/chandrakant-umrekar-141bb932b/"
-            >
-              Chandrakant Umrekar
-            </a>
-            .
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            {[
-              { icon: FaFacebookF, href: "https://facebook.com" },
-              { icon: FaTwitter, href: "https://x.com/Chandrakant_0w" },
-              { icon: FaInstagram, href: "https://instagram.com" },
-              {
-                icon: FaLinkedinIn,
-                href: "https://www.linkedin.com/in/chandrakant-umrekar-141bb932b/",
-              },
-            ].map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-[#ff4500] dark:hover:text-[#ff8c00] transition-colors duration-100"
-              >
-                <social.icon className="h-6 w-6" />
-              </a>
-            ))}
-          </div>
-        </div>
-      </footer>
     </main>
   );
 };
