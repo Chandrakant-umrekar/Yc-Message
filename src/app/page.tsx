@@ -14,7 +14,7 @@ import Link from "next/link";
 
 const Home = () => {
   return (
-    <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-12 lg:px-24 py-12 text-gray-900 bg-gradient-to-br from-[#fdfbfb] to-[#ebedee] dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+    <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-12 lg:px-24 py-12 text-gray-900 dark:text-gray-50 transition-colors duration-300">
       <section className="text-center mb-12 max-w-3xl transition-transform duration-300">
         <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-800 dark:text-gray-50 tracking-tight ">
           Discover the Power of{" "}
@@ -23,15 +23,19 @@ const Home = () => {
           </span>{" "}
           Feedback
         </h1>
-        <p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300">
+        <h2 className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300">
           Empower your voice without revealing your identity at{" "}
           <span className="bg-gradient-to-r from-[#ff4500] to-[#ff8c00] dark:from-[#ff5e57] dark:to-[#ff7849] text-transparent bg-clip-text font-semibold">
             Yc Message
           </span>
-        </p>
+        </h2>
+        <h3 className="relative p-0 text-[0.001px] -z-40 text-white">
+          This is the best anonymous messaging platform, build by chandrakant
+          umrekar who is full stack web developer.
+        </h3>
         <Link
           href="/sign-up"
-          className="mt-6 inline-block px-8 py-3 text-white hover:text-current text-lg font-semibold rounded-lg bg-gradient-to-r from-[#ff4500] to-[#ff8c00] hover:from-[#ff8c00] hover:to-[#ff4500] transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg dark:shadow-orange-500/20"
+          className="mt-6 inline-block px-8 py-3 text-white text-lg font-semibold rounded-lg bg-gradient-to-r from-[#ff4500] to-[#ff8c00] hover:from-[#ff8c00] hover:to-[#ff4500] transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg dark:shadow-orange-500/20"
         >
           Get Started
         </Link>

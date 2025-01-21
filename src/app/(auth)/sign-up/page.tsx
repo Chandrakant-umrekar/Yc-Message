@@ -76,7 +76,6 @@ const SignUp = () => {
       router.replace(`/verify/${username}`);
       setIsSubmitting(false);
     } catch (err) {
-      console.log("Error in signup", err);
       const axiosError = err as AxiosError<ApiResponse>;
       const errorMessage = axiosError.response?.data.message;
       toast({

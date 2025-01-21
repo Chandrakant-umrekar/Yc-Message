@@ -78,8 +78,8 @@ const Navbar = () => {
             <Link href="/" className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#ff4500] to-[#ff8c00] rounded-full opacity-0 group-hover:opacity-20 transition duration-300"></div>
               <Image
-                width={55}
-                height={55}
+                width={50}
+                height={50}
                 src="/logo.png"
                 alt="logo"
                 className="rounded-full relative transition-transform duration-300 group-hover:scale-105"
@@ -150,20 +150,22 @@ const Navbar = () => {
               </Link>
             )}
           </div>
-          <div className="md:hidden">
+
+          <menu className="md:hidden">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
+              className="text-gray-700  dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
             >
+              <p className="text-[0.001px]">Menu</p>
               {menuOpen ? (
                 <X className="h-6 w-6" />
               ) : (
                 <Menu className="h-6 w-6" />
               )}
             </Button>
-          </div>
+          </menu>
           {menuOpen && (
             <div className="absolute right-0 top-full mt-2 w-48 rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black/5 p-2 space-y-2 md:hidden">
               <DropdownMenu>

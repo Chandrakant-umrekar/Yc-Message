@@ -63,7 +63,7 @@ export default function SendMessage() {
     }
   };
   return (
-    <div className="container mx-auto my-8 p-8 bg-white dark:bg-gray-900 rounded-lg shadow-lg transition-colors duration-200 max-w-4xl border border-gray-200 dark:border-gray-700">
+    <div className="container mx-auto my-8 p-8 hover:ring-1 hover:ring-blue-500/60 bg-white dark:bg-gray-900 rounded-lg shadow-lg transition-colors duration-200 max-w-4xl border border-gray-200 dark:border-gray-700">
       <h1 className="text-4xl font-bold mb-8 text-center text-gray-900 dark:text-gray-50">
         Public Profile Link
       </h1>
@@ -122,7 +122,7 @@ export default function SendMessage() {
           Want to receive anonymous messages?
         </div>
         <Link href="/sign-up">
-          <Button>Create Your Message Board</Button>
+          <Button>Create Your Message Link</Button>
         </Link>
       </div>
     </div>
